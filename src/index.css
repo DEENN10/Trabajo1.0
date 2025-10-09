@@ -1,0 +1,350 @@
+/* index.css – Estilos Completos para BAS CZAGUI (Vite + React + Bootstrap + Font Awesome) */
+
+/* 1. Importa Bootstrap CSS (necesario para classes como container, row, btn, etc.) */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* 2. Importa Font Awesome (para tus icons: fas fa-tint, fas fa-balance-scale, etc.) */
+@import '@fortawesome/fontawesome-free/css/all.min.css';  /* Reemplaza Bootstrap Icons – Compatible con tu Home.tsx */
+
+/* 3. Reset Global y Body – Base para Todo el Sitio */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;  /* Fuentes modernas, rápida carga */
+  line-height: 1.6;
+  color: #333;  /* Texto gris oscuro base */
+  background-color: #f8f9fa;  /* Fondo claro gris para metrología pro */
+  scroll-behavior: smooth;  /* Scroll suave en enlaces */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;  /* Hereda color del padre */
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #007bff;  /* Azul corporativo en hover */
+}
+
+/* Colores Corporativos – Variables CSS para Reuso */
+:root {
+  --primary-blue: #007bff;  /* Azul principal (Bootstrap primary) */
+  --secondary-gray: #6c757d;  /* Gris secundario */
+  --light-bg: #f8f9fa;  /* Fondo claro */
+  --dark-text: #333;
+  --white: #fff;
+  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);  /* Sombra Bootstrap small */
+  --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);  /* Sombra medium para cards */
+}
+
+/* 4. Hero Video Section – Para Tu Video hero-gb.mp4 (1366x768) */
+/* 4. Hero Video Section – FIX: Expansión Full Viewport (Llena Más Espacio) */
+.hero-video {
+  position: relative !important;  /* ¡FIX: Fuerza relative para absolutes internos */
+  overflow: hidden;
+  height: 100vh !important;  /* ¡CAMBIO CLAVE: Full viewport (no min-height) – Expande verticalmente */
+  width: 100vw;  /* Full ancho también, para edge-to-edge */
+  top: 0;  /* ¡FIX: Empieza desde top de viewport (ignora navbar push) */
+  left: 0;
+  margin: 0 !important;  /* ¡FIX: Reset margins (Bootstrap los agrega) */
+  padding: 0 !important;  /* ¡FIX: Sin padding top que "suba" el video */
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  z-index: 1;  /* Bajo navbar (z-index 1030 en Bootstrap) */
+}
+
+.hero-video video {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;  /* ¡FIX: Fuerza 100% del contenedor expandido */
+  object-fit: cover;  /* Crop y llena sin distorsión */
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;  /* ¡FIX: Expande con el video */
+  background: rgba(0, 0, 0, 0.4);  /* Overlay – Ajusta opacidad si nuevo video */
+  z-index: 2;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay .container {
+  z-index: 3;
+  position: relative;
+  padding-top: 0 !important;  /* ¡FIX: Sin padding extra en container */
+  margin-top: 0 !important;
+  width: 100%;
+  max-width: none;  /* Full en hero para más inmersivo */
+}
+
+/* Texto Hero – Mantiene Grande (Del Cambio Anterior) */
+.hero-video .display-3 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-weight: bold !important;
+  margin-bottom: 1.5rem;
+  font-size: 4.5rem;  /* Grande en desktop */
+  line-height: 1.1;
+}
+
+.hero-video .lead {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CTA Btn – Igual que Antes */
+.hero-video .btn {
+  background-color: var(--primary-blue) !important;
+  border-color: var(--primary-blue);
+  color: var(--white);
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding: 1rem 2.5rem;
+}
+
+.hero-video .btn:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Responsive – Ajustes para No Desbordar en Mobile */
+@media (max-width: 768px) {
+  .hero-video {
+    height: 90vh !important;  /* Aún full pero un poco menos en tablet */
+  }
+  
+  .hero-video .display-3 {
+    font-size: 3.5rem !important;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-video .lead {
+    font-size: 1.3rem !important;
+    padding: 0 15px;
+    max-width: 90%;
+  }
+  
+  .hero-video .btn {
+    font-size: 1.1rem !important;
+    padding: 0.75rem 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-video {
+    height: 80vh !important;  /* Fit en phones (evita scroll extra) */
+  }
+  
+  .hero-video .display-3 {
+    font-size: 2.8rem !important;
+  }
+  
+  .hero-video .lead {
+    font-size: 1.1rem !important;
+  }
+  
+  .hero-video .btn {
+    padding: 0.75rem 1.75rem;
+    font-size: 1rem;
+  }
+}
+
+/* FIX Global: Reset Body para Hero (Agrega Esto al Inicio de index.css si No Hay) */
+body {
+  margin: 0 !important;
+  padding-top: 0 !important;  /* Evita push por navbar fixed */
+}
+
+#root {
+  margin-top: 0 !important;  /* Si App.tsx tiene wrapper */
+}
+
+/* 5. Responsive para Hero – Mobile/Tablet */
+@media (max-width: 768px) {
+  .hero-video {
+    min-height: 50vh;  /* Menos alto en mobile para no dominar pantalla */
+  }
+  
+  .hero-video .display-3 {
+    font-size: 2.5rem !important;  /* Reduce tamaño h1 (override Bootstrap) */
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero-video .lead {
+    font-size: 1.1rem !important;  /* Reduce subtitle */
+    padding: 0 15px;  /* Espacio en bordes móviles */
+  }
+  
+  .hero-video .btn-lg {
+    font-size: 1rem !important;  /* Btn más pequeño en mobile */
+    padding: 0.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-video {
+    min-height: 40vh;  /* Aún más corto en phones pequeños */
+  }
+  
+  .hero-video .display-3 {
+    font-size: 2rem !important;
+  }
+  
+  .hero-video .lead {
+    font-size: 1rem !important;
+  }
+}
+
+/* 6. Estilos para Main y Cards en Home – Mejoras Sutiles */
+main {
+  padding: 4rem 0;  /* Espacio arriba/abajo */
+  background-color: var(--light-bg);
+}
+
+main .container {
+  max-width: 1200px;  /* Límite ancho para desktop */
+}
+
+main h2.display-5 {
+  color: var(--dark-text);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+main .lead {
+  color: var(--secondary-gray);
+  font-size: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+/* Cards en Home – Estilo Pro para Especialidades */
+.card {
+  border: none;  /* Sin borde Bootstrap default */
+  border-radius: 10px;  /* Bordes redondeados */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Hover suave */
+  background: var(--white);
+}
+
+.card:hover {
+  transform: translateY(-5px);  /* Eleva card al hover */
+  box-shadow: var(--shadow-md);
+}
+
+.card i {
+  color: var(--primary-blue);  /* Icons en azul (fas fa-... de Font Awesome) */
+  transition: color 0.3s ease;
+}
+
+.card:hover i {
+  color: #0056b3;  /* Azul oscuro en hover */
+}
+
+.card h5 {
+  color: var(--dark-text);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: var(--secondary-gray);
+  font-size: 0.95rem;
+}
+
+.card .btn-primary {
+  background-color: var(--primary-blue);
+  border-color: var(--primary-blue);
+  transition: all 0.3s ease;
+}
+
+.card .btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+/* Responsive para Cards */
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: 1.5rem;  /* Más espacio entre cards en mobile */
+  }
+  
+  .card i {
+    font-size: 2.5rem;  /* Icons más grandes en mobile */
+  }
+}
+
+/* 7. Navbar y Footer – Estilos Básicos (Asume componentes simples) */
+/* Fix para Navbar – Agrega/Actualiza al Final de index.css */
+.navbar .nav-link {
+  color: #000 !important;  /* Negro base (override inline si conflicto) */
+  font-weight: normal !important;  /* Normal (no bold) – Solo active lo maneja TSX */
+  transition: color 0.3s ease;  /* Suave cambio a azul en hover */
+}
+
+.navbar .nav-link:hover {
+  color: #007bff !important;  /* Azul en hover – Mantiene lo que te gusta */
+}
+
+.navbar .nav-link.active {
+  color: #007bff !important;  /* Azul en active (refuerza TSX) */
+  text-decoration: underline;  /* Opcional: Underline para resaltar página actual */
+}
+
+/* Logo – Refuerzo Negro (si inline no basta) */
+.navbar-brand {
+  color: #000 !important;  /* Negro fijo */
+  font-weight: bold !important;
+}
+
+/* 8. Utilidades Generales – Para Todo el Sitio */
+.text-primary-custom {
+  color: var(--primary-blue) !important;
+}
+
+.btn-primary-custom {
+  background-color: var(--primary-blue);
+  border-color: var(--primary-blue);
+}
+
+.container-fluid {
+  padding-left: 1rem;
+  padding-right: 1rem;  /* Espacio en mobile */
+}
+
+/* 9. Animaciones Sutiles – Para Feel Moderno */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
