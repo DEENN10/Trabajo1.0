@@ -10,7 +10,7 @@ const Services: React.FC = () => {
     <div>
       <Navbar />
       <main className="container mt-5 pt-5">
-        <h1 className="display-4 mb-4 text-center">Servicios</h1>
+        <h1 className="display-4 mb-4 text-center">Nuestros Servicios</h1>
         <p className="lead text-center mb-5">Inspecciones certificadas.</p>
         <div className="row">
           <div className="col-md-6 mb-4">
