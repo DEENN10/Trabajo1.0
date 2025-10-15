@@ -43,43 +43,38 @@ a:hover {
 }
 
 /* 4. Hero Video Section – Para Tu Video hero-gb.mp4 (1366x768) */
-/* 4. Hero Video Section – FIX: Expansión Full Viewport (Llena Más Espacio) */
+/* 4. Hero Video Section – Actualizado: Texto Más Visible (Plateado Oscuro o Blanco con Efecto 3D) */
+/* 4. Hero Video Section – Actualizado: Título con Efecto 3D, Subtítulo y Botón en Blanco Normal */
 .hero-video {
-  position: relative !important;  /* ¡FIX: Fuerza relative para absolutes internos */
+  position: relative;
   overflow: hidden;
-  height: 100vh !important;  /* ¡CAMBIO CLAVE: Full viewport (no min-height) – Expande verticalmente */
-  width: 100vw;  /* Full ancho también, para edge-to-edge */
-  top: 0;  /* ¡FIX: Empieza desde top de viewport (ignora navbar push) */
-  left: 0;
-  margin: 0 !important;  /* ¡FIX: Reset margins (Bootstrap los agrega) */
-  padding: 0 !important;  /* ¡FIX: Sin padding top que "suba" el video */
-  display: flex !important;
+  height: 100vh;
+  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: var(--white);
-  z-index: 1;  /* Bajo navbar (z-index 1030 en Bootstrap) */
+  color: #C0C0C0;  /* Plateado claro para el título (solo él lo usa) */
 }
 
 .hero-video video {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;  /* ¡FIX: Fuerza 100% del contenedor expandido */
-  object-fit: cover;  /* Crop y llena sin distorsión */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   z-index: 1;
 }
 
 .hero-overlay {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;  /* ¡FIX: Expande con el video */
-  background: rgba(0, 0, 0, 0.4);  /* Overlay – Ajusta opacidad si nuevo video */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);  /* Overlay – Ajusta si necesario */
   z-index: 2;
-  display: flex !important;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -87,23 +82,22 @@ a:hover {
 .hero-overlay .container {
   z-index: 3;
   position: relative;
-  padding-top: 0 !important;  /* ¡FIX: Sin padding extra en container */
-  margin-top: 0 !important;
-  width: 100%;
-  max-width: none;  /* Full en hero para más inmersivo */
 }
 
-/* Texto Hero – Mantiene Grande (Del Cambio Anterior) */
+/* Título (.display-3) – Plateado Claro con Efecto 3D */
 .hero-video .display-3 {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  font-weight: bold !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8),  /* Sombra para 3D */
+               0 0 10px rgba(192, 192, 192, 0.5);  /* Glow plateado */
+  font-weight: bold;
+  font-size: 4.5rem;
   margin-bottom: 1.5rem;
-  font-size: 4.5rem;  /* Grande en desktop */
-  line-height: 1.1;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
+/* Subtítulo (.lead) – Blanco Normal, Sin Efectos */
 .hero-video .lead {
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  color: #FFFFFF;  /* ¡CAMBIO: Blanco normal (sin text-shadow) */
   font-size: 1.5rem;
   margin-bottom: 2rem;
   max-width: 600px;
@@ -111,11 +105,11 @@ a:hover {
   margin-right: auto;
 }
 
-/* CTA Btn – Igual que Antes */
+/* Botón – Texto en Blanco Normal, Sin Efectos */
 .hero-video .btn {
-  background-color: var(--primary-blue) !important;
-  border-color: var(--primary-blue);
-  color: var(--white);
+  background-color: #007bff;  /* Fondo azul */
+  border-color: #007bff;
+  color: #FFFFFF;  /* ¡CAMBIO: Blanco normal (sin text-shadow) */
   transition: all 0.3s ease;
   font-weight: 500;
   font-size: 1.2rem;
@@ -126,50 +120,26 @@ a:hover {
   background-color: #0056b3;
   border-color: #0056b3;
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #FFFFFF;  /* Mantén blanco en hover */
 }
 
-/* Responsive – Ajustes para No Desbordar en Mobile */
+/* Responsive – Ajustes para Mobile */
 @media (max-width: 768px) {
-  .hero-video {
-    height: 90vh !important;  /* Aún full pero un poco menos en tablet */
-  }
-  
   .hero-video .display-3 {
-    font-size: 3.5rem !important;
-    margin-bottom: 1rem;
+    font-size: 3.5rem;
   }
   
   .hero-video .lead {
-    font-size: 1.3rem !important;
-    padding: 0 15px;
-    max-width: 90%;
+    font-size: 1.3rem;
   }
   
   .hero-video .btn {
-    font-size: 1.1rem !important;
+    font-size: 1.1rem;
     padding: 0.75rem 2rem;
   }
 }
 
-@media (max-width: 576px) {
-  .hero-video {
-    height: 80vh !important;  /* Fit en phones (evita scroll extra) */
-  }
-  
-  .hero-video .display-3 {
-    font-size: 2.8rem !important;
-  }
-  
-  .hero-video .lead {
-    font-size: 1.1rem !important;
-  }
-  
-  .hero-video .btn {
-    padding: 0.75rem 1.75rem;
-    font-size: 1rem;
-  }
-}
 
 /* FIX Global: Reset Body para Hero (Agrega Esto al Inicio de index.css si No Hay) */
 body {
@@ -373,4 +343,86 @@ body {
 
 .fade-in-up {
   animation: fadeInUp 0.6s ease-out;
+}
+
+/* FIX para Contenedores en Home – Límites Visibles y Efectos (Agrega al Final) */
+.page-section,  /* Para secciones como en Nosotros (global) */
+.hero-video,    /* Si quieres bordes en hero (opcional) */
+main {          /* Para "Nuestras Especialidades" en Home */
+  border: 1px solid #dee2e6 !important;  /* Borde sutil gris (visible pero no fuerte) */
+  border-radius: 8px !important;  /* Bordes redondeados para pro feel */
+  box-shadow: var(--shadow-sm) !important;  /* Sombra ligera (profundidad) */
+  background-color: #ffffff !important;  /* Fondo blanco para contraste */
+  margin-bottom: 2rem !important;  /* Espacio entre secciones */
+  padding: 2rem !important;  /* Padding interno para contenido */
+  transition: box-shadow 0.3s ease;  /* Efecto hover suave */
+}
+
+.page-section:hover,
+.hero-video:hover,
+main:hover {
+  box-shadow: var(--shadow-md) !important;  /* Sombra más fuerte al hover (resalta) */
+}
+
+/* Ajustes para Cards en Home – Mantén Sus Límites */
+.card {
+  border: 1px solid #dee2e6 !important;  /* Borde en cards (si no lo tienen) */
+  border-radius: 10px !important;
+  transition: all 0.3s ease;  /* Suave hover */
+}
+
+.card:hover {
+  border-color: #007bff !important;  /* Borde azul al hover (resalta) */
+  transform: translateY(-5px);  /* Eleva card */
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* Responsive – Ajustes para Mobile (Bordes Suaves) */
+@media (max-width: 768px) {
+  .page-section, main {
+    border-radius: 4px !important;  /* Bordes más suaves en mobile */
+    padding: 1rem !important;  /* Menos padding para no desbordar */
+  }
+  
+  .card {
+    border: none !important;  /* Sin bordes en cards mobile (para clean) */
+    box-shadow: var(--shadow-sm) !important;  /* Solo sombra */
+  }
+}
+
+/* FIX para Scroll Horizontal – Agrega al Final de index.css */
+html, body, #root {
+  overflow-x: hidden;  /* Bloquea scroll horizontal en todo el sitio */
+  width: 100%;  /* Asegura ancho full sin excedir */
+  margin: 0;  /* Reset márgenes */
+  padding: 0;  /* Reset paddings */
+}
+
+.hero-video, .page-section, main {
+  width: 100vw !important;  /* Fuerza ancho full viewport */
+  max-width: 100% !important;  /* No exceder pantalla */
+  overflow-x: hidden !important;  /* Por contenedor, si hay elementos anchos */
+}
+
+/* Ajuste para Contenedores – Evita Desbordes */
+.row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.col-md-6, .col-md-4 {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;  /* Reduce padding para no causar overflow */
+}
+
+/* Responsive Extra – Para Asegurar en Mobile */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;  /* Menos espacio en mobile */
+  }
+  
+  .hero-video img {
+    max-width: 100% !important;  /* Imágenes en Nosotros no desborden */
+  }
 }
