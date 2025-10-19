@@ -7,6 +7,8 @@ import Servicios from './pages/Services';  // Crea si no existe (código abajo s
 import Blog from './pages/Blog';
 import Contacto from './pages/Contact';  // Crea si no
 import AvisoPrivacidad from './pages/Privacy';  // Crea si no
+import PaginaGas from './pages/PaginaGas';
+import PaginaBasculas from './pages/PaginaBasculas';
 
 // Componente ScrollToTop – FIX: Scroll al top en cada cambio de ruta
 const ScrollToTop: React.FC = () => {
@@ -38,6 +40,8 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/aviso-privacidad" element={<AvisoPrivacidad />} />
+            <Route path="/pagina-gas" element={<PaginaGas />} />
+            <Route path="/pagina-basculas" element={<PaginaBasculas />} />
             {/* 404 Opcional */}
             <Route path="*" element={<div className="container my-5"><h1>404 - No Encontrada</h1></div>} />
           </Routes>

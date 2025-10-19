@@ -216,21 +216,21 @@ const Contact: React.FC = () => {
           <div className="col-md-6 mb-4">
             <div className="card shadow-sm h-100">
               <div className="card-body p-4">
-                <h3 className="card-title mb-4">Nuestra Ubicación e Info</h3>
+                <h3 className="card-title mb-4">Nuestra Ubicación e Informacion.</h3>
                 <p className="card-text mb-3">BASCZAGUI S.A DE C.V. – Cobertura nacional, base en CDMX.</p>
                 
                 <div className="mb-4">
                   <p className="d-flex align-items-center gap-2 mb-2">
                     <i className="fas fa-phone text-primary"></i>
-                    <span>(55) 10203040</span>
+                    <span>(55) 8870 9958</span>
                   </p>
                   <p className="d-flex align-items-center gap-2 mb-2">
                     <i className="fas fa-envelope text-primary"></i>
-                    <span><a href="mailto:basczagui@gmail.com">basczagui@gmail.com</a></span>
+                    <span><a href="mailto:basczagui@gmail.com">contacto@inspecciones-basczagui.com</a></span>
                   </p>
                   <p className="d-flex align-items-center gap-2 mb-3">
                     <i className="fas fa-map-marker-alt text-primary"></i>
-                    <span>Av. 414-A Numero 81, San Juan de Aragón VI Sección</span>
+                    <span>Av. 414-A Numero 81, San Juan de Aragon VI Seccion</span>
                   </p>
                 </div>
                 
