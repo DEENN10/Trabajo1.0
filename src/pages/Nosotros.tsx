@@ -1,67 +1,97 @@
 import React from 'react';
-import { Link } from 'react-router-dom';  // Para CTA links (ya lo tienes)
-import equipoImg from '../assets/imagenes/about/4.jpeg';  // Tu imagen (cambia a '4.jpg' si es .jpg)
+import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import equipoImg from '../assets/imagenes/about/4.jpeg';  // Primera imagen
+import equipoImg2 from '../assets/imagenes/about/5.jpeg';  // Segunda imagen
 
 const Nosotros: React.FC = () => {
+  React.useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+  }, []);
+
   return (
-    <div className="page-section" style={{ scrollMarginTop: '0' }}>  {/* FIX: Scroll al top en navegación */}
+    <div className="page-section" style={{ scrollMarginTop: '0' }}>
       <div className="container my-5">
-        {/* Intro Hero-Like – Título y Descripción General */}
+        {/* Sección Intro Modificada – Texto Largo Dividido con Iconos e Imagen */}
         <div className="row align-items-center mb-5">
           <div className="col-md-6">
             <h1 className="display-4 fw-bold text-primary mb-3">Nosotros</h1>
-            <p className="lead">
-              BASCZAGUI S.A. DE C.V. es líder en metrología e inspección en México. 
-              Con más de [X años] de experiencia, nos especializamos en calibraciones precisas para medidores de Gas LP, básculas industriales y certificaciones NOM. 
-              Ofrecemos servicios confiables y certificados por EMA, con cobertura nacional desde CDMX.
+            <p className="lead mb-3">
+              <i className="fas fa-award text-primary me-2"></i>
+              <strong>BASCZAGUI S.A DE C.V.</strong>, Es la primera unidad de verificación acreditada por la <strong>Entidad Mexicana de Acreditación (EMA)</strong> con número de registro <strong>UVIM-199</strong> y aprobada por <strong>Secretaría de Economía (SE)</strong> para llevar a cabo la verificación de Sistemas de medición para Gas L.P. utilizados en transacciones comerciales (medidores de flujo colocados en auto-tanques y estaciones de carburación).
             </p>
-            <Link to="/servicios" className="btn btn-primary btn-lg">
-              Ver Nuestros Servicios
-            </Link>
+            <p className="lead mb-4">
+              <i className="fas fa-users text-primary me-2"></i>
+              Contamos con una cartera de clientes que comprende algunos de los grupos gaseros más importantes en la Ciudad de México y zona metropolitana, los cuales se han visto satisfechos con nuestros servicios. 
+              <i className="fas fa-lightbulb text-primary me-2"></i>
+              Nuestra filosofía está basada en la <strong>calidad y la experiencia</strong>. Sabemos y entendemos las necesidades de nuestros clientes por ello ofrecemos servicios adaptables a su negocio.
+            </p>
+            
           </div>
           <div className="col-md-6 text-center">
-            {/* Imagen – Desde src/assets/imagenes/about/ */}
             <img 
-              src={equipoImg}  // Usa el import (Vite genera URL automática)
-              alt="Equipo BASCZAGUI en acción" 
-              className="img-fluid rounded shadow-sm" 
-              style={{ maxHeight: '400px', objectFit: 'cover' }}  // Responsive y crop
+              src={equipoImg}
+              alt="Equipo BASCZAGUI acreditado" 
+              className="img-fluid rounded shadow-sm p-2"
+              style={{ 
+                maxHeight: '500px',
+                objectFit: 'cover', 
+                transition: 'transform 0.3s ease',
+                '@media (max-width: 768px)': { maxHeight: '400px' }
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+              data-aos="fade-in"
+              data-aos-delay="200"
             />
           </div>
         </div>
 
-        {/* Sección Historia */}
-        <div className="row mb-5">
-          <div className="col-md-12">
-            <h2 className="text-center mb-4">Nuestra Historia</h2>
-            <p className="text-center lead mb-4">
-              Fundados en 2010, BASCZAGUI surgió de la necesidad de servicios de metrología confiables en la industria mexicana. 
-              Comenzamos con inspecciones básicas de medidores de Gas LP y hemos crecido para cubrir todo el espectro de calibraciones NOM, 
-              sirviendo a estaciones de servicio, fábricas y distribuidores en todo el país.
+        {/* Sección Nuestra Historia Modificada – Texto Largo Dividido con Iconos e Imagen */}
+        <div className="row mb-5 align-items-center">
+          <div className="col-md-6 text-center order-md-1 order-2">
+            <img 
+              src={equipoImg2}
+              alt="Fundamentación y beneficios de BASCZAGUI" 
+              className="img-fluid rounded shadow-sm p-2"
+              style={{ 
+                maxHeight: '500px',
+                objectFit: 'cover', 
+                transition: 'transform 0.3s ease',
+                '@media (max-width: 768px)': { maxHeight: '400px' }
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+              onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+              data-aos="zoom-in"
+              data-aos-delay="300"
+            />
+          </div>
+          <div className="col-md-6 order-md-2 order-1">
+            <h2 className="mb-4">En BASCZAGUI...</h2>
+            <p className="lead mb-3">
+              <i className="fas fa-book text-primary me-2"></i>
+              Nuestra labor de verificación se encuentra fundamentada en la recomendación internacional <strong>OIML-R-117-1 "SISTEMAS DINÁMICOS DE MEDICIÓN PARA LÍQUIDOS DIFERENTES AL AGUA. PARTE 1: REQUISITOS TÉCNICOS Y METROLÓGICOS"</strong>. Edición 2007. En la cual se establecen los requisitos que deben de cumplir los sistemas de medición para gas L.P. para ser utilizados en transacciones comerciales.
             </p>
-            <div className="row">
-              <div className="col-md-4 text-center mb-3">
-                <i className="fas fa-chart-line text-primary" style={{ fontSize: '3rem' }}></i>
-                <h5 className="mt-2">Crecimiento</h5>
-                <p>De local a nacional: Hoy cubrimos CDMX y estados clave.</p>
-              </div>
-              <div className="col-md-4 text-center mb-3">
-                <i className="fas fa-users text-primary" style={{ fontSize: '3rem' }}></i>
-                <h5 className="mt-2">Equipo</h5>
-                <p>Técnicos certificados con experiencia en EMA y CEM.</p>
-              </div>
-              <div className="col-md-4 text-center mb-3">
-                <i className="fas fa-award text-primary" style={{ fontSize: '3rem' }}></i>
-                <h5 className="mt-2">Logros</h5>
-                <p>Más de 10,000 calibraciones exitosas y cero multas para clientes.</p>
-              </div>
-            </div>
+            <p className="lead">
+              <i className="fas fa-user-check text-primary me-2"></i>
+              Contamos con personal altamente calificado quienes están acreditados por la EMA y aprobados por la SE para realizar sus funciones. 
+              <i className="fas fa-shield-alt text-primary me-2"></i>
+              Mantener sus equipos verificados representa un beneficio para su negocio ya que usted estará cumpliendo con las disposiciones legales incluidas en la "Lista de Instrumentos de Medición cuya verificación inicial, periódica o extraordinaria es obligatoria, así como las normas aplicables para efectuarla, publicada el 18 de abril de 2016 y su modificación del 19/08/2021" evitando contratiempos con la autoridad. Además de esta manera conocen el funcionamiento de su equipo y los sellos colocados (holograma Profeco de instrumento verificado y la etiqueta de la unidad de verificación) generan más confianza en sus clientes porque representa mayor seguridad sobre lo que están pagando.
+            </p>
           </div>
         </div>
 
+        {/* Sección Misión y Visión con Iconos Agregados */}
         <div className="row mb-5">
           <div className="col-md-6">
-            <h2 className="mb-3">Nuestra Misión</h2>
+            <h2 className="mb-3">
+              <i className="fas fa-bullseye text-primary me-2"></i>  {/* Icono para Misión */}
+              Nuestra Misión
+            </h2>
             <p>
               Proporcionar mediciones exactas y servicios de calibración que garanticen el cumplimiento de normas oficiales mexicanas (NOM), 
               reduciendo riesgos de seguridad y pérdidas económicas para industrias de gas LP, pesaje y más. 
@@ -69,7 +99,10 @@ const Nosotros: React.FC = () => {
             </p>
           </div>
           <div className="col-md-6">
-            <h2 className="mb-3">Nuestra Visión</h2>
+            <h2 className="mb-3">
+              <i className="fas fa-eye text-primary me-2"></i>  {/* Icono para Visión */}
+              Nuestra Visión
+            </h2>
             <p>
               Ser el socio preferido en metrología industrial en México, innovando con tecnología IoT para medidores inteligentes y 
               expandiendo nuestra cobertura a toda la república. 
@@ -78,12 +111,10 @@ const Nosotros: React.FC = () => {
           </div>
         </div>
 
+        {/* Resto de la página permanece igual */}
         <div className="row mb-5">
           <div className="col-md-12">
-            <h2 className="text-center mb-4">Nuestra Expertise</h2>  {/* FIX: "Experiencia." → "Expertise" */}
-            <p className="text-center lead mb-4">
-              Especializados en inspecciones in situ y certificaciones para evitar multas y asegurar operaciones seguras.
-            </p>
+            <h2 className="text-center mb-4">Somos Especialistas.</h2>
             <div className="row">
               <div className="col-md-4 mb-4">
                 <div className="card h-100 text-center p-4 shadow-sm">
@@ -114,8 +145,8 @@ const Nosotros: React.FC = () => {
           <div className="col-12 text-center">
             <h3 className="mb-3">¿Listo para Colaborar?</h3>
             <p className="lead mb-4">Únete a cientos de clientes satisfechos con nuestra precisión certificada.</p>
-            <Link to="/contacto" className="btn btn-primary btn-lg me-3">Contáctanos</Link>  {/* <Link> – Navega a top de /contacto */}
-            <Link to="/servicios" className="btn btn-outline-primary btn-lg">Ver Servicios</Link>  {/* <Link> – Navega a top de /servicios */}
+            <Link to="/contacto" className="btn btn-primary btn-lg me-3">Contáctanos</Link>
+            <Link to="/servicios" className="btn btn-outline-primary btn-lg">Ver Servicios</Link>
           </div>
         </div>
       </div>
