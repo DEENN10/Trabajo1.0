@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
-interface NavbarProps {
-  // Vacío por ahora
-}
+interface NavbarProps {}
 
 const Navbar: React.FC<NavbarProps> = ({}) => {
   const location = useLocation();
@@ -12,16 +11,26 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
     return location.pathname === path;
   };
 
+  // Función para cerrar el menú al hacer clic en un enlace
+  const closeMenu = () => {
+    const navbarCollapse = document.getElementById('navbarNav');
+    if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+      const bsCollapse = new (window as any).bootstrap.Collapse(navbarCollapse, {
+        hide: true
+      });
+    }
+  };
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top" style={{ padding: '0.5rem 0' }}>  {/* Padding reducido */}
       <div className="container">
-        {/* Logo – Negro fijo + Bold */}
         <Link 
           className="navbar-brand" 
           to="/" 
           style={{ 
-            color: '#000',  // Negro fijo (override CSS azul)
-            fontWeight: 'bold'  // Bold para impacto
+            color: '#000',
+            fontWeight: 'bold',
+            fontSize: '1.1rem'  // Fuente más pequeña para logo
           }}
         >
           BASCZAGUI S.A DE C.V.
@@ -45,9 +54,11 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
               <Link 
                 className={`nav-link ${isActive('/') ? 'active' : ''}`}
                 to="/"
+                onClick={closeMenu}  // Cierra menú al hacer clic
                 style={{ 
-                  fontWeight: isActive('/') ? 'bold' : 'normal',  // Bold solo si active
-                  color: isActive('/') ? '#007bff' : '#000'  // Azul en active, negro resto
+                  fontWeight: isActive('/') ? 'bold' : 'normal',
+                  color: isActive('/') ? '#007bff' : '#000',
+                  fontSize: '0.9rem'  // Fuente más pequeña para enlaces
                 }}
               >
                 Inicio
@@ -57,9 +68,11 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
               <Link 
                 className={`nav-link ${isActive('/nosotros') ? 'active' : ''}`}
                 to="/nosotros"
+                onClick={closeMenu}
                 style={{ 
                   fontWeight: isActive('/nosotros') ? 'bold' : 'normal',
-                  color: isActive('/nosotros') ? '#007bff' : '#000'
+                  color: isActive('/nosotros') ? '#007bff' : '#000',
+                  fontSize: '0.9rem'
                 }}
               >
                 Nosotros
@@ -69,9 +82,11 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
               <Link 
                 className={`nav-link ${isActive('/servicios') ? 'active' : ''}`}
                 to="/servicios"
+                onClick={closeMenu}
                 style={{ 
                   fontWeight: isActive('/servicios') ? 'bold' : 'normal',
-                  color: isActive('/servicios') ? '#007bff' : '#000'
+                  color: isActive('/servicios') ? '#007bff' : '#000',
+                  fontSize: '0.9rem'
                 }}
               >
                 Servicios
@@ -81,9 +96,11 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
               <Link 
                 className={`nav-link ${isActive('/blog') ? 'active' : ''}`}
                 to="/blog"
+                onClick={closeMenu}
                 style={{ 
                   fontWeight: isActive('/blog') ? 'bold' : 'normal',
-                  color: isActive('/blog') ? '#007bff' : '#000'
+                  color: isActive('/blog') ? '#007bff' : '#000',
+                  fontSize: '0.9rem'
                 }}
               >
                 Blog
@@ -93,9 +110,11 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
               <Link 
                 className={`nav-link ${isActive('/contacto') ? 'active' : ''}`}
                 to="/contacto"
+                onClick={closeMenu}
                 style={{ 
                   fontWeight: isActive('/contacto') ? 'bold' : 'normal',
-                  color: isActive('/contacto') ? '#007bff' : '#000'
+                  color: isActive('/contacto') ? '#007bff' : '#000',
+                  fontSize: '0.9rem'
                 }}
               >
                 Contacto
@@ -105,9 +124,11 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
               <Link 
                 className={`nav-link ${isActive('/aviso-privacidad') ? 'active' : ''}`}
                 to="/aviso-privacidad"
+                onClick={closeMenu}
                 style={{ 
                   fontWeight: isActive('/aviso-privacidad') ? 'bold' : 'normal',
-                  color: isActive('/aviso-privacidad') ? '#007bff' : '#000'
+                  color: isActive('/aviso-privacidad') ? '#007bff' : '#000',
+                  fontSize: '0.9rem'
                 }}
               >
                 Aviso de Privacidad

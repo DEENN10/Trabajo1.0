@@ -2,13 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import AOS from 'aos';  // Importa AOS para efectos
-import 'aos/dist/aos.css';  // Estilos de AOS
-import equipoImg from '../assets/imagenes/about/somos.png';  // Tu imagen existente
-import Carousel from 'react-bootstrap/Carousel';  // Carrusel de Bootstrap
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import equipoImg from '../assets/imagenes/about/somos.png';
+import Carousel from 'react-bootstrap/Carousel';
 
 const Home: React.FC = () => {
-  // Inicializa AOS en el componente
   React.useEffect(() => {
     AOS.init({
       duration: 800,
@@ -20,9 +19,8 @@ const Home: React.FC = () => {
     <div>
       <Navbar />
       
-      {/* Nuevo Carrusel en lugar de Hero */}
-      <Carousel fade className="w-100" style={{ maxHeight: '500px', overflow: 'hidden' }}>
-        {/* Video 1: hero-bg.mp4 */}
+      {/* Carrusel con intervalo de 4 segundos y text-shadow para resaltar texto */}
+      <Carousel fade className="w-100" style={{ maxHeight: '500px', overflow: 'hidden' }} interval={4000}>
         <Carousel.Item>
           <video 
             autoPlay 
@@ -36,19 +34,19 @@ const Home: React.FC = () => {
             Tu navegador no soporta videos.
           </video>
           <Carousel.Caption 
-            data-aos="fade-in"  // Efecto fade-in para este texto
+            data-aos="fade-in"
             data-aos-delay="500"
-            className="text-shadow"
+            className="text-center"
+            
           >
-            <h3 className="fw-bold text-white">Bienvenidos a BASCZAGUI S.A DE C.V.</h3>
-            <p className="lead text-white">Líderes en Inspecciones de Gas L.P y Básculas</p>
+            <h3 className="fw-bold text-white fs-1">Bienvenidos a BASCZAGUI S.A DE C.V.</h3>
+            <p className="lead text-white fs-4">Líderes en Inspecciones de Gas L.P y Básculas</p>
             <Link to="/servicios" className="btn btn-primary btn-lg mt-3">
               Servicios
             </Link>
           </Carousel.Caption>
         </Carousel.Item>
 
-        {/* Video 2: inicio-basculas.mp4 */}
         <Carousel.Item>
           <video 
             autoPlay 
@@ -62,19 +60,21 @@ const Home: React.FC = () => {
             Tu navegador no soporta videos.
           </video>
           <Carousel.Caption 
-            data-aos="zoom-in"  // Efecto zoom-in para este texto
+            data-aos="zoom-in"
             data-aos-delay="500"
-            className="text-shadow"
+            className="text-center"
+            style={{
+              textShadow: '3px 3px 6px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0, 0, 0, 0.8)'
+            }}
           >
-            <h3 className="fw-bold text-white">Especialistas en Básculas</h3>
-            <p className="lead text-white">Soluciones precisas para tu negocio</p>
+            <h3 className="fw-bold text-white fs-1">Especialistas en Básculas</h3>
+            <p className="lead text-white fs-4">Soluciones precisas para tu negocio</p>
             <Link to="/servicios" className="btn btn-primary btn-lg mt-3">
               Servicios
             </Link>
           </Carousel.Caption>
         </Carousel.Item>
 
-        {/* Video 3: inicio-gaslp.mp4 */}
         <Carousel.Item>
           <video 
             autoPlay 
@@ -88,12 +88,15 @@ const Home: React.FC = () => {
             Tu navegador no soporta videos.
           </video>
           <Carousel.Caption 
-            data-aos="slide-up"  // Efecto slide-up para este texto
+            data-aos="slide-up"
             data-aos-delay="500"
-            className="text-shadow"
+            className="text-center"
+            style={{
+              textShadow: '3px 3px 6px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0, 0, 0, 0.8)'
+            }}
           >
-            <h3 className="fw-bold text-white">Expertos en Gas LP</h3>
-            <p className="lead text-white">Inspecciones seguras y eficientes</p>
+            <h3 className="fw-bold text-white fs-1">Expertos en Gas LP</h3>
+            <p className="lead text-white fs-4">Inspecciones seguras y eficientes</p>
             <Link to="/servicios" className="btn btn-primary btn-lg mt-3">
               Servicios
             </Link>
@@ -101,11 +104,11 @@ const Home: React.FC = () => {
         </Carousel.Item>
       </Carousel>
       
-      {/* Resto de la estructura permanece igual */}
+      {/* Resto igual */}
       <section className="container my-5 text-center">
         <h2 className="display-5 fw-bold text-primary mb-4">¿Quiénes Somos?</h2>
         <div className="row align-items-center">
-          <div className="col-md-6">
+          <div className="col-md-6 col-12 mb-3 mb-md-0">
             <p className="lead">
               BASCZAGUI S.A DE C.V., es la primera unidad de verificación acreditada por la Entidad Mexicana de Acreditación (EMA) con numero de registro UVIM-199 Y aprobada por Secretaria de Economia (SE) para llevar a cabo la verificación de Sistemas de medición para Gas L.P. utilizados en transacciones comerciales (medidores de flujo colocados en auto-tanques y estaciones de carburación).
             </p>
@@ -113,7 +116,7 @@ const Home: React.FC = () => {
               Conócenos
             </Link>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-6 col-12">
             <img 
               src={equipoImg}  
               alt="Equipo BASCZAGUI en acción" 

@@ -424,3 +424,20 @@ html, body, #root {
     max-width: 100% !important;  /* Imágenes en Nosotros no desborden */
   }
 }
+
+/* Efecto de sobreado solo en textos del carrusel */
+.carousel-caption {
+  background: none !important;  /* Quita cualquier background o recuadro */
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0, 0, 0, 0.8) !important;  /* Sombra fuerte para resaltar letras */
+}
+
+/* Responsive si es necesario */
+@media (max-width: 768px) {
+  .carousel-caption h3 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9) !important;  /* Menos intensa en móvil */
+  }
+  .carousel-caption p {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9) !important;
+  }
+}
+
