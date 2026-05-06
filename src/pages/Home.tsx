@@ -6,6 +6,9 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import equipoImg from '../assets/imagenes/about/somos.png';
 import Carousel from 'react-bootstrap/Carousel';
+import videoBasculas from '../assets/videos/inicio-basculas.mp4';
+import videoGaslp from '../assets/videos/inicio-gaslp.mp4';
+import videoHero from '../assets/videos/hero-bg.mp4';
 
 const Home: React.FC = () => {
   React.useEffect(() => {
@@ -30,10 +33,11 @@ const Home: React.FC = () => {
             className="d-block w-100"
             style={{ height: '500px', objectFit: 'cover' }}
           >
-            <source src="/assets/videos/hero-bg.mp4" type="video/mp4" />
+          <source src={videoHero} type="video/mp4" />
             Tu navegador no soporta videos.
           </video>
           <Carousel.Caption 
+          
             data-aos="fade-in"
             data-aos-delay="500"
             className="text-center"
@@ -56,7 +60,7 @@ const Home: React.FC = () => {
             className="d-block w-100"
             style={{ height: '500px', objectFit: 'cover' }}
           >
-            <source src="/assets/videos/inicio-basculas.mp4" type="video/mp4" />
+            <source src={videoBasculas} type="video/mp4" />
             Tu navegador no soporta videos.
           </video>
           <Carousel.Caption 
@@ -84,7 +88,7 @@ const Home: React.FC = () => {
             className="d-block w-100"
             style={{ height: '500px', objectFit: 'cover' }}
           >
-            <source src="/assets/videos/inicio-gaslp.mp4" type="video/mp4" />
+            <source src={videoGaslp} type="video/mp4" />
             Tu navegador no soporta videos.
           </video>
           <Carousel.Caption 

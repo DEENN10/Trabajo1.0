@@ -15,7 +15,7 @@ const Navbar: React.FC<NavbarProps> = ({}) => {
   const closeMenu = () => {
     const navbarCollapse = document.getElementById('navbarNav');
     if (navbarCollapse && navbarCollapse.classList.contains('show')) {
-      const bsCollapse = new (window as any).bootstrap.Collapse(navbarCollapse, {
+      new (window as any).bootstrap.Collapse(navbarCollapse, {
         hide: true
       });
     }

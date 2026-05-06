@@ -173,7 +173,7 @@ const Blog: React.FC = () => {
             {/* Debug: Log del map */}
             {(() => {
               console.log('Rendering', blogPosts.length, 'cards');
-              return blogPosts.map((post, index) => (
+              return blogPosts.map((post) => (
                 <div 
                   key={post.id} 
                   className="col-md-6 col-lg-4 mb-4" 

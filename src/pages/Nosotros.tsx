@@ -36,12 +36,11 @@ const Nosotros: React.FC = () => {
             <img 
               src={equipoImg}
               alt="Equipo BASCZAGUI acreditado" 
-              className="img-fluid rounded shadow-sm p-2"
+              className="img-fluid rounded shadow-sm p-2 img-nosotros"
               style={{ 
                 maxHeight: '500px',
                 objectFit: 'cover', 
                 transition: 'transform 0.3s ease',
-                '@media (max-width: 768px)': { maxHeight: '400px' }
               }}
               onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
               onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
@@ -57,12 +56,11 @@ const Nosotros: React.FC = () => {
             <img 
               src={equipoImg2}
               alt="Fundamentación y beneficios de BASCZAGUI" 
-              className="img-fluid rounded shadow-sm p-2"
+              className="img-fluid rounded shadow-sm p-2 img-nosotros"
               style={{ 
                 maxHeight: '500px',
                 objectFit: 'cover', 
                 transition: 'transform 0.3s ease',
-                '@media (max-width: 768px)': { maxHeight: '400px' }
               }}
               onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
               onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}

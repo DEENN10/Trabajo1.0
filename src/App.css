@@ -86,3 +86,13 @@ html {
     margin-bottom: 1rem;
   }
 }
+
+.img-nosotros {
+  max-height: 500px;
+}
+
+@media (max-width: 768px) {
+  .img-nosotros {
+    max-height: 400px;
+  }
+}

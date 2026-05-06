@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';  // ¡NUEVO: useEffect para scroll
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';  // useLocation para detectar cambio de ruta
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';  // useLocation para detectar cambio de ruta
 import Navbar from './components/Navbar';  // Navbar global
 import Home from './pages/Home';
 import Nosotros from './pages/Nosotros';
